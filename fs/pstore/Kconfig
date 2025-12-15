@@ -15,7 +15,7 @@ config PSTORE
 
 config PSTORE_DEFLATE_COMPRESS
 	tristate "DEFLATE (ZLIB) compression"
-	default y
+	default n
 	depends on PSTORE
 	select CRYPTO_DEFLATE
 	help
@@ -52,6 +52,7 @@ config PSTORE_842_COMPRESS
 
 config PSTORE_ZSTD_COMPRESS
 	bool "zstd compression"
+    default y
 	depends on PSTORE
 	select CRYPTO_ZSTD
 	help
@@ -75,7 +76,7 @@ choice
 	  Currently, pstore has support for 6 compression algorithms:
 	  deflate, lzo, lz4, lz4hc, 842 and zstd.
 
-	  The default compression algorithm is deflate.
+	  The default compression algorithm is zstd.
 
 	config PSTORE_DEFLATE_COMPRESS_DEFAULT
 		bool "deflate" if PSTORE_DEFLATE_COMPRESS
