@@ -431,7 +431,6 @@ static int zstd_init_decompress_ctx(struct decompress_io_ctx *dic)
 	zstd_dstream *stream;
 	void *workspace;
 	unsigned int workspace_size;
-	workspace = f2fs_kvmalloc(F2FS_I_SB(dic->inode), workspace_size, GFP_NOFS);
 	workspace = f2fs_kvmalloc(F2FS_I_SB(dic->inode),
 					workspace_size, GFP_NOFS);
 	if (!workspace)
